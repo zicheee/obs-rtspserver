@@ -97,6 +97,29 @@ rm -rf ~/obs-rtspserver-linux
 * Add `add_subdirectory(obs-rtspserver)` to (obs-studio source code)/plugins/CMakeLists.txt
 * Build obs-rtspserver.
 
+# Usage
+## Starting the RTSP Server
+1. Open OBS Studio and go to Tools → RTSP Server
+2. Configure the server settings (port, authentication, etc.)
+3. Click Start to start the RTSP server
+
+### Important: Automatic Stream Activation
+The RTSP stream is automatically active once the RTSP server is started. You do NOT need to use OBS Studio's "Start Streaming" button. The stream is automatically available based on your current scene and source settings.
+
+### Accessing the Stream
+```
+rtsp://{server-ip}:{port}/{path}
+
+## if all defaults:
+rtsp://{server-ip}:554/live
+```
+You can test the stream using media players like VLC, FFmpeg, or any RTSP-compatible client.
+
+### Notes
+* The RTSP server runs independently from OBS Studio's built-in streaming functionality
+* The stream reflects whatever is currently shown in your OBS preview (active scene)
+* The server will continue running until you stop it manually or close OBS Studio
+
 # FAQ
 * [Can't find the plugin in the menu](https://github.com/iamscottxu/obs-rtspserver/wiki/FAQ#cant-find-the-plugin-in-the-menu)
 
